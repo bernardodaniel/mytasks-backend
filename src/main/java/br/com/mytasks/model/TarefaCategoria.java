@@ -1,5 +1,6 @@
 package br.com.mytasks.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ public class TarefaCategoria {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@Column(nullable = false, length = 100)
 	private String nome;
 
 	public Integer getId() {
