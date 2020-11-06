@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import br.com.mytasks.controller.response.TarefaResponse;
 import br.com.mytasks.model.Tarefa;
 import br.com.mytasks.service.TarefaService;
 
+//@CrossOrigin()
 @RestController
 @RequestMapping("/tarefa")
 public class TarefaController {
