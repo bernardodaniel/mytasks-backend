@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +41,15 @@ public class CustomGlobalExceptionConfiguration extends ResponseEntityExceptionH
 		return ResponseEntity.notFound().build();
 		
 	}
+	
+	@ExceptionHandler(DataIntegrityViolationException.class)
+	public ResponseEntity<Object> handleDataIntegrityViolationException(
+			DataIntegrityViolationException ex) {
+		
+		return ResponseEntity
+				.status(HttpStatus.METHOD_NOT_ALLOWED)
+				.body("Não é possível completar a operação por que o recurso é referenciado dentro do sistema");
+	} 
 	
 	
 	
